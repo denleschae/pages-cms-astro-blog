@@ -1,0 +1,32 @@
+---
+import PriceCard from "./PriceCard.astro";
+
+interface Block {
+  type: string;
+  [key: string]: unknown;
+}
+
+interface Props {
+  blocks: Block[];
+}
+
+const { blocks } = Astro.props;
+---
+
+{
+  blocks.map(block => {
+    switch (block.type) {
+      case "price_card":
+        return (
+          <PriceCard
+            title={block.title as string}
+            description={block.description as string}
+            button_text={block.button_text as string}
+            button_url={block.button_url as string}
+          />
+        );
+      default:
+        return null;
+    }
+  })
+}

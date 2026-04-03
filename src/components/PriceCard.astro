@@ -1,0 +1,58 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  button_text: string;
+  button_url: string;
+}
+
+const { title, description, button_text, button_url } = Astro.props;
+---
+
+<div class="price-card">
+  <h2 class="price-card__title">{title}</h2>
+  <p class="price-card__description">{description}</p>
+  <a href={button_url} class="price-card__button">
+    {button_text}
+  </a>
+</div>
+
+<style>
+  .price-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .price-card__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .price-card__description {
+    color: #64748b;
+    margin: 0;
+  }
+
+  .price-card__button {
+    display: inline-block;
+    background-color: #6366f1;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.2s;
+  }
+
+  .price-card__button:hover {
+    background-color: #4f46e5;
+  }
+</style>
